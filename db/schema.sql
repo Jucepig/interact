@@ -4,12 +4,16 @@ CREATE DATABASE twitter_db;
 
 USE twitter_db;
 
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENET,
+    username VARCHAR(30) NOT NULL,
+    password VARCHAR(30) NOT NULL,
+    email VARCHAR(160) NOT NULL
+);
+
 CREATE TABLE tweets (
-    id INT PRIMARY KEY AUTO_INCREMENET, 
-    tweet_id BIGINT NOT NULL, 
-    tweet_text VARCHAR(160) NOT NULL, 
-    screen_name VARCHAR(160) NOT NULL, 
-    author_id BIGINT,
-    created_at DATETIME NOT NULL,
-    inserted_at DATETIME NOT NULL
+    id INT PRIMARY KEY AUTO_INCREMENET,
+    users_id INT REFERENCES users(id),  
+    text VARCHAR(280) NOT NULL,  
+    date DATETIME NOT NULL,
 );

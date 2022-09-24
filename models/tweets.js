@@ -11,30 +11,19 @@ Tweets.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    
+    text: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    artist: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    date: {
+      type: DataTypes.DATETIME,
+      allowNull: false
     },
-    exhibition_date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    filename: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    twitter_id: {
+    users_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'twitter',
+        model: 'users',
         key: 'id',
       },
     },
