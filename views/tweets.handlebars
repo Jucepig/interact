@@ -1,8 +1,8 @@
 <section class="tweets">
-  <img src="/images/{{painting.filename}}" alt="{{painting.description}}">
+  <img src="/images/{{tweets.filename}}" alt="{{tweets.description}}">
   <div class="tweets-details">
     <h3>{{tweets.title}}</h3>
-    <p>By: {{painting.artist}}</p>
+    <p>By: {{tweets.artist}}</p>
     <!-- The custom method 'format_date' is used to calculate the end date and format it correctly -->
     <p>Exhibition open until: {{ format_date painting.exhibition_date}}</p>
   </div>
