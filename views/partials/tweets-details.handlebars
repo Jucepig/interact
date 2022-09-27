@@ -1,10 +1,14 @@
 <section class="card">
   <a href="/tweets/{{id}}">
-    <header>{{title}}</header>
-
     <div class="card-body">
-      <img src="/images/{{filename}}" alt="{{description}}">
-      <p>By: {{username}}</p>
+      {{#each tweetsData as |tweet|}}
+      <p>
+        {{tweet.text}}.
+      </p>
+      {{/each}}
+      {{#each usersData as |user|}}
+      <p>By: {{user.username}}</p>
+      {{/each}}
     </div>
   </a>
 </section>
