@@ -11,13 +11,13 @@
   "author": "Interact.co",
   "license": "MIT",
   "dependencies": {
-    "twit": "^2.2.11",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "handlebars": "^4.7.6",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "twit": "^2.2.11"
   },
   "engines": {
     "node": "8.x"
@@ -38,6 +38,3 @@
     "API"
   ]
 }
-
-
-
