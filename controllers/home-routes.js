@@ -1,20 +1,20 @@
 const router = require('express').Router();
-const { Gallery, Painting } = require('../models');
+const { Tweets, Users } = require('../models');
 
 // GET all galleries for homepage
 router.get('/', async (req, res) => {
   try {
-    const dbGalleryData = await Gallery.findAll({
+    const dbTweetsData = await Tweets.findAll({
       include: [
         {
-          model: Painting,
-          attributes: ['filename', 'description'],
+          model: Users,
+          attributes: ['username', 'email', 'password'],
         },
       ],
     });
 
-    const galleries = dbGalleryData.map((gallery) =>
-      gallery.get({ plain: true })
+    const galleries = dbTweetsData.map((tweets) =>
+      tweets.get({ plain: true })
     );
 
     res.render('homepage', {
@@ -26,41 +26,38 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET one gallery
-router.get('/gallery/:id', async (req, res) => {
+// GET one tweets
+router.get('/tweets/:id', async (req, res) => {
   try {
-    const dbGalleryData = await Gallery.findByPk(req.params.id, {
+    const dbTweetsData = await Tweets.findByPk(req.params.id, {
       include: [
         {
-          model: Painting,
+          model: Users,
           attributes: [
-            'id',
-            'title',
-            'artist',
-            'exhibition_date',
-            'filename',
-            'description',
+            'username',
+            'email',
+            'password',
           ],
         },
       ],
     });
 
-    const gallery = dbGalleryData.get({ plain: true });
-    res.render('gallery', { gallery });
+    const tweets = dbTweetsData.get({ plain: true });
+    res.render('tweets', { tweets });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-// GET one painting
-router.get('/painting/:id', async (req, res) => {
+// GET one users
+router.get('/users/:id', async (req, res) => {
   try {
-    const dbPaintingData = await Painting.findByPk(req.params.id);
+    const dbUsersData = await Users.findByPk(req.params.id);
 
-    const painting = dbPaintingData.get({ plain: true });
+    const users = dbUsersData.get({ plain: true });
 
-    res.render('painting', { painting });
+    res.render('users', { users });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
