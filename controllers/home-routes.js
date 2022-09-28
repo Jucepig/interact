@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 // GET one tweets
 router.get('/tweets/:id', async (req, res) => {
   try {
-    const dbTweetsData = await Tweets.findByPk(req.params.id, {
+    const dbTweetsData = await Tweets.findAll( {
       include: [
         {
           model: Users,
@@ -40,10 +40,13 @@ router.get('/tweets/:id', async (req, res) => {
           ],
         },
       ],
+      where: {users_id: req.params.id}
     });
 
-    const tweets = dbTweetsData.get({ plain: true });
+    const tweets = dbTweetsData.map(el=>el.get({plain:true}))
+    console.log(tweets)
     res.render('tweets', { tweets });
+    
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
