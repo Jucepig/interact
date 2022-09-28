@@ -75,3 +75,4 @@ function postStatus(params){
 
 
 uploadMedia('Video from pexel', 'pexel_video.mp4');
+getPhoto("pexel.jpg");
