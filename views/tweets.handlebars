@@ -1,6 +1,8 @@
+{{#each tweetsData as |tweet|}}
 <section class="tweets">
   <div class="tweets-details">
     <h3>{{tweet.text}}</h3>
     <p>By: {{tweet.username}}</p>
   </div>
 </section>
+{{/each}}
