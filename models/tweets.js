@@ -17,7 +17,7 @@ Tweets.init(
       allowNull: false,
     },
     date: {
-      type: DataTypes.DATETIME,
+      type: DataTypes.DATE,
       allowNull: false
     },
     users_id: {
