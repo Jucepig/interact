@@ -13,7 +13,7 @@ CREATE TABLE users (
 
 CREATE TABLE tweets (
     id INT PRIMARY KEY AUTO_INCREMENET,
-    users_id INT REFERENCES users(id),  
+    users_id INT FOREIGN KEY REFERENCES users(id),  
     text VARCHAR(280) NOT NULL,  
     date DATETIME NOT NULL,
 );
